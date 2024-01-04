@@ -76,7 +76,9 @@ class PokemonCardWidget extends StatelessWidget {
         ),
       );
     } else {
-      widget = const CircularProgress();
+      widget = const Expanded(
+        child: CircularProgress(),
+      );
     }
     return widget;
   }
