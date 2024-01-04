@@ -24,7 +24,7 @@ class PokemonImageWidget extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color: Color.fromARGB(255, 155, 249, 249),
+            color: const Color.fromARGB(255, 155, 249, 249),
           ),
           child: Stack(
             alignment: Alignment.center,
