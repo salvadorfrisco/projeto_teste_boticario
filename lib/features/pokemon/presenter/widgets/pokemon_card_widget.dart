@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_teste/core/components/components.dart';
+import 'package:projeto_teste/features/pokemon/presenter/widgets/pokemon_image_widget.dart';
 import 'package:provider/provider.dart';
 import '../../../../../core/errors/failure.dart';
 import '../../domain/entities/pokemon_entity.dart';
@@ -14,7 +15,7 @@ class PokemonCardWidget extends StatelessWidget {
     Failure? failure = Provider.of<PokemonProvider>(context).failure;
     late Widget widget;
     if (pokemon != null) {
-      widget = Expanded(
+      widget = PokemonImageWidget(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -25,7 +26,7 @@ class PokemonCardWidget extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: FittedBox(
                     child: Text(
-                      '${pokemon.id} - ${pokemon.name.toUpperCase()}',
+                      '#${pokemon.id} ${pokemon.name.toUpperCase()}',
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w900,
@@ -39,19 +40,6 @@ class PokemonCardWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-              ),
-            ),
-            Expanded(
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: const Color.fromARGB(255, 0, 255, 221),
-                ),
-                child: Image.network(
-                  pokemon.sprites.other.officialArtwork.frontDefault,
                 ),
               ),
             ),
