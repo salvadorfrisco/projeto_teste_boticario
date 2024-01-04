@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_teste/features/pokemon_image/presenter/providers/pokemon_image_provider.dart';
 import 'package:provider/provider.dart';
 import 'features/pokemon/presenter/pages/pokemon_page.dart';
 import 'features/pokemon/presenter/providers/pokemon_provider.dart';
@@ -21,9 +20,6 @@ class PokemonApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => SelectedPokemonItemProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => PokemonImageProvider(),
         ),
       ],
       child: MaterialApp(
@@ -60,12 +56,12 @@ class _HomeState extends State<Home> {
   void initState() {
     SelectedPokemonItemProvider selectedPokemonItem =
         Provider.of<SelectedPokemonItemProvider>(context, listen: false);
-    PokemonImageProvider pokemonImageProvider =
-        Provider.of<PokemonImageProvider>(context, listen: false);
+    PokemonProvider pokemonProvider =
+        Provider.of<PokemonProvider>(context, listen: false);
 
     Provider.of<PokemonProvider>(context, listen: false).eitherFailureOrPokemon(
       value: (selectedPokemonItem.number + 1).toString(),
-      pokemonImageProvider: pokemonImageProvider,
+      pokemonProvider: pokemonProvider,
     );
     super.initState();
   }

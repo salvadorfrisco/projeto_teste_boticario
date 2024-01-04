@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/constants/constants.dart';
-import '../../../pokemon_image/presenter/providers/pokemon_image_provider.dart';
 import '../providers/pokemon_provider.dart';
 import '../providers/selected_pokemon_item_provider.dart';
 
@@ -54,14 +53,14 @@ class SelectPokemonWidget extends StatelessWidget {
                         selectedPokemonItem.changeNumber(
                           newNumber: selectedItem,
                         );
-                        PokemonImageProvider pokemonImageProvider =
-                            Provider.of<PokemonImageProvider>(context,
+                        PokemonProvider pokemonProvider =
+                            Provider.of<PokemonProvider>(context,
                                 listen: false);
 
                         Provider.of<PokemonProvider>(context, listen: false)
                             .eitherFailureOrPokemon(
                           value: (selectedPokemonItem.number + 1).toString(),
-                          pokemonImageProvider: pokemonImageProvider,
+                          pokemonProvider: pokemonProvider,
                         );
                       },
                       children: List<Widget>.generate(

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_teste/features/pokemon_image/presenter/providers/pokemon_image_provider.dart';
 
 import '../../../../../core/errors/failure.dart';
 import '../../../../core/params/params.dart';
@@ -20,7 +19,7 @@ class PokemonProvider extends ChangeNotifier {
 
   void eitherFailureOrPokemon({
     required String value,
-    required PokemonImageProvider pokemonImageProvider,
+    required PokemonProvider pokemonProvider,
   }) async {
     PokemonRepositoryImpl repository = PokemonRepositoryImpl(
       dataSource: PokemonDataSourceImpl(dio: Dio()),
@@ -39,8 +38,6 @@ class PokemonProvider extends ChangeNotifier {
       (newPokemon) {
         pokemon = newPokemon;
         failure = null;
-        pokemonImageProvider.eitherFailureOrPokemonImage(
-            pokemonEntity: newPokemon);
         notifyListeners();
       },
     );
