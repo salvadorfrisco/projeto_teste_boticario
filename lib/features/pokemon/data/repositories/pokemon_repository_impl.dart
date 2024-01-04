@@ -23,4 +23,15 @@ class PokemonRepositoryImpl implements IPokemonRepository {
       return Left(ServerFailure(errorMessage: 'This is a server exception'));
     }
   }
+
+  @override
+  Future<Either<Failure, List<String>>> getPokemonNames() async {
+    try {
+      final pokemonNamesList = await dataSource.getPokemonNames();
+
+      return Right(pokemonNamesList);
+    } on ServerException {
+      return Left(ServerFailure(errorMessage: 'This is a server exception'));
+    }
+  }
 }

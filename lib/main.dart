@@ -72,9 +72,48 @@ class _HomeState extends State<Home> {
         child: Scaffold(
             appBar: AppBar(
               centerTitle: true,
-              title: const Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Text('Teste Boticário')),
+              title: Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: RichText(
+                  text: const TextSpan(
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'P',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 30.0,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'o',
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 30.0,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'kemon ',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Boticário',
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 30.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
             body: const PokemonPage()));
   }
