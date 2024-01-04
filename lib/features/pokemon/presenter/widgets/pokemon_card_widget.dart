@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_teste/core/components/components.dart';
 import 'package:provider/provider.dart';
 import '../../../../../core/errors/failure.dart';
 import '../../../pokemon_image/presenter/widgets/pokemon_image_widget.dart';
@@ -75,14 +76,7 @@ class PokemonCardWidget extends StatelessWidget {
         ),
       );
     } else {
-      widget = const Expanded(
-        child: Center(
-          child: CircularProgressIndicator(
-            backgroundColor: Colors.white,
-            color: Colors.orangeAccent,
-          ),
-        ),
-      );
+      widget = CircularProgress();
     }
     return widget;
   }
